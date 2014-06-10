@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>2014 Winfield Criterium</title>
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <style type="text/css">
+            @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
+            html, body {
+                height: 100%;
+                -webkit-font-smoothing: antialiased;
+                font-family: 'Open Sans', sans-serif;
+            }
+            .row {
+                margin-left: 0px;
+                margin-right: 0px;
+            }
+            #wrap {
+                min-height: 100%;
+                height: auto !important;
+                height: 100%;
+                margin: 0 auto -60px;
+                padding: 0 0 0 0;
+            }
+            #footer {
+                height: 60px;
+                background-color: #414141;
+                margin-top: 50px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+            .navbar-wrapper {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 10;
+            }
+            .carousel-caption { z-index: 10; }
+            #myCarousel .item {
+                height: 600px;
+                background-color: #bbb;
+            }
+            #myCarousel img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                min-width: 100%;
+                height: 600px;
+            }
+            #wrap > .container { padding: 60px 15px 0; }
+            .container .credit { margin: 20px 0; }
+            #footer a { color: #efefef; }
+            header {
+                background: #333;
+                color: #555;
+            }
+            h1 { font-size: 50px; }
+            .logo {
+                font-size: 60px;
+                font-weight: 700;
+                text-shadow: -2px 0 #ff0000, 0 2px #ff0000, 2px 0 #ff0000, 0 -2px #ff0000;
+                position: absolute;
+                z-index: 1200;
+                color: #fff;
+                top: 70px;
+                text-align: center;
+                width: 100%;
+            }
+            .carousel-caption h1 {
+                font-size: 40px;
+                font-weight: 700;
+                color: #ff0000;
+                text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+            }
+            #nav {
+                width: 100%;
+                position: static;
+                top: -32px;
+            }
+            #nav.affix {
+                position: fixed;
+                top: 0;
+                z-index: 10;
+                -webkit-transition: all .6s ease-in-out;
+            }
+            @media (min-width: 767px) {
+                .navbar-nav.nav-justified > li {
+                    float: none;
+                }
+            }
+            .navbar-nav { margin: 1px 1px; }
+            .navbar-custom {
+                background-color: #2e2e2e;
+                font-weight: 700;
+                text-transform: uppercase;
+                border-width: 0;
+            }
+            .navbar-custom .navbar-nav > li > a { color: #ddd; }
+            .navbar-custom .navbar-nav li > a:hover, .navbar-nav li .open, .navbar-custom .navbar-nav .active a { background-color: #000; }
+            .navbar-collapse.in { overflow-y: visible; }
+            .navbar-toggle { outline: 0; }
+            .divider { height: 50px; }
+            .panel { border-width: 0; }
+            #map-canvas {
+                width: 100%;
+                height: 300px;
+                margin: 0;
+                padding: 15px;
+            }
+            .scroll-top {
+                position: fixed;
+                bottom: 0;
+                right: 6%;
+                z-index: 100;
+                background: #f2f3f2;
+                font-size: 24px;
+                border-top-left-radius: 3px;
+                border-top-right-radius: 3px;
+            }
+            .scroll-top a:link, .scroll-top a:visited { color: #222; }
+            section {
+                color: #fff;
+                min-height: 400px;
+                height: auto !important;
+                height: 100%;
+                padding-top: 100px;
+            }
+            .bg-1 {
+                background: url('/images/bg_1.JPG') no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+            .bg-2 {
+                background: url('/images/bg_2.JPG') no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+            .bg-3 {
+                background: url('/images/bg_3.JPG') no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+            .bg-4 {
+                padding-top: 30px;
+                background-color: #e6e6e6;
+            }
+            .panel .img-responsive {
+                min-height: 270px;
+                max-height: 270px;
+            }
+            .results {
+                background-color: #e6e6e6;
+                border: 1px solid #f2f3f2;
+                padding: 20px 0 25px 0;
+            }
+            .results h2 {
+                text-align: center;
+            }
+            th, td { 
+                text-align: center;
+            }
+            .sponsor {
+                text-align: center;
+                background-color: #e6e6e6;
+                border: 1px solid #f2f3f2;
+                padding: 20px 0 25px 0;
+            }
+            .sponsor img {
+                filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+                filter: gray;
+                -webkit-filter: grayscale(100%);
+                -webkit-transition: all .6s ease;
+                -webkit-backface-visibility: hidden;
+            }
+            .sponsor img:hover {
+                ilter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+                -webkit-filter: grayscale(0%);
+            }
+            .sponsor .img-responsive {
+                margin: 0 auto;
+            }
+            .opaque {
+                opacity: 0.25;
+                -webkit-transition: all .6s ease;
+            }
+            .opaque:hover {
+                opacity: 1;
+            }
+            a {
+                -webkit-transition: all .6s ease;
+            }
+            .flyer a {
+                color: #00ff00 !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <header class="masthead">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="/images/bg_1.JPG" />
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <h1>Saturday, July 12, 2014</h1>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="/images/bg_2.JPG" />
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <h1>Over $7,500 In Prizes!</h1>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="/images/bg_3.JPG" />
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <h1>Amateur &amp; Professional Races</h1>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- .carousel-inner -->
+                    <div class="logo">2014 Winfield Criterium</div>
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div><!-- #myCarousel -->
+            </header>
+            <div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div><!-- .navbar-header -->
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav nav-justified">
+                            <li><a href="#section1">Home</a></li>
+                            <li><a href="#section2">Results</a></li>
+                            <li><a href="#section3">Event Info</a></li>
+                            <li><a href="#section4">Sponsors</a></li>
+                            <li><a href="#section5">Media</a></li>
+                            <li><a href="#section6">Location</a></li>
+                            <li><a href="#section7">Contact</a></li>
+                            <li class="flyer"><a href="/files/2014_WinfieldCriterium.pdf" target="_blank">Download Flyer</a></li>
+                        </ul>
+                    </div><!-- .navbar-collapse -->
+                </div><!-- .container -->
+            </div><!-- #nav -->
+
+            <a href="http://www.paveliga.com/" title="Pave Liga" class="pull-right">
+                <img src="/images/paveliga-small.png" alt="Pave Liga" class="opaque" width="75px" />
+            </a>
+            <div class="container text-center"><h1>Over $7,500 In Prizes!</h1></div>
+
+            <!--=====================================================================================
+                == START: CONTENT                                                                  ==
+                =====================================================================================-->
+
+                <!-- SECTION1: Home -->
+                <div class="divider" id="section1"></div>
+                <div class="divider"></div>
+                <div class="container">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div class="page-header text-center">
+                            <h1>2014 Winfield Criterium</h1>
+                        </div>
+                        <p class="lead text-center">Athlete By Design's 15<sup>th</sup> Annual Road-Cycling Race Event</p>
+                        <hr />
+                        <p class="lead text-center">Saturday, July 12, 2014</p>
+                        <hr />
+                        <p class="lead text-center">Over $7,500 In Prizes!</p>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+                <section class="bg-1">
+                    <div class="col-sm-6 col-sm-offset-3 text-center"></div>
+                </section>
+
+                <!-- SECTION2: Results -->
+                <div class="divider" id="section2"></div>
+                <div class="divider"></div>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <h1>Results</h1>
+                        <hr />
+                        <p>Some of the years below have results for 2 days. The first day results will be linked to the first 2 digits of the year and the second day results will be linked to the last 2 digits of the year.</p>
+                        <div class="col-sm-3 results"><h2><a href="https://docs.google.com/spreadsheet/pub?key=0AnbDE-QMMVlRdG1ESHR2RWJ1NHpVNGVOTC1KY05BclE&output=html" title="Day 1">20</a><a href="https://docs.google.com/spreadsheet/pub?key=0AnbDE-QMMVlRdEVLNGkyMzA2LWZ6LXhERnphZ3FobUE&output=html" title="Day 2">13</a></h2></div>
+                        <div class="col-sm-3 results"><h2><a href="https://docs.google.com/spreadsheet/pub?key=0AnbDE-QMMVlRdFBhNWt3ZVdfZXZNUVdqa2h0ZmFLZEE&output=html" title="Day 1">20</a><a href="https://docs.google.com/spreadsheet/pub?key=0AnbDE-QMMVlRdDJwODNvSXNsclpMWFVTU0JYeHo5TVE&output=html" title="Day 2">12</a></h2></div>
+                        <div class="col-sm-3 results"><h2><a href="https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=0AogcIWe-6cDZdGVGcm84RE1ZeDB6bVE0UnI2U3FXYVE&output=html">2011</a></h2></div>
+                        <div class="col-sm-3 results"><h2><a href="https://spreadsheets.google.com/pub?key=0AogcIWe-6cDZdEl0QzJmVW1adU9qVENER0FoLW1UR1E&hl=en&output=html" title="Day 1">20</a><a href="https://spreadsheets.google.com/pub?key=0AogcIWe-6cDZdGp6bUtKZF9ORHRXS2hGcVRES080b1E&hl=en&output=html" title="Day 2">10</a></h2></div>
+                        <div class="col-sm-3 results"><h2><a href="http://spreadsheets.google.com/pub?key=rzrj_3rmF5o6idGgxIvb3_g&output=html" title="Day 1">20</a><a href="http://spreadsheets.google.com/pub?key=ri1TxxN52Snm1ofuXvpgDTg&output=html" title="Day 2">09</a></h2></div>
+                        <div class="col-sm-3 results"><h2><a href="http://abdcycling.com/racesevents/2008/WinfieldCrit/results_twilight.html" title="Day 1">20</a><a href="http://abdcycling.com/racesevents/2008/WinfieldCrit/results_sunday.html" title="Day 2">08</a></h2></div>
+                        <div class="col-sm-3 results"><h2><a href="http://www.abdcycling.com/results/2007/WinCrit/TwilightCrit07.htm" title="Day 1">20</a><a href="http://www.abdcycling.com/results/2007/WinCrit/WinCrit07.htm" title="Day 2">07</a></h2></div>
+                        <div class="col-sm-3 results"><h2><a href="http://www.abdcycling.com/results/2006/WinfieldCrit/winfield%20twilight%20criterium.pdf" title="Day 1">20</a><a href="http://www.abdcycling.com/results/2006/WinfieldCrit/winfieldcritvii.pdf" title="Day 2">06</a></h2></div>
+                        <div class="col-sm-3 results"><h2>2005</h2></div>
+                        <div class="col-sm-3 results"><h2><a href="http://www.abdcycling.com/results/2004/WinfieldCrits/TwilightResults.html" title="Day 1">20</a><a href="http://www.abdcycling.com/results/2004/WinfieldCrits/WinfieldV_Results.html" title="Day 2">04</a></h2></div>
+                        <div class="col-sm-3 results"><h2><a href="http://www.abdcycling.com/results/2003/winfieldcrits/winfieldcriterium.pdf">2003</a></h2></div>
+                        <div class="col-sm-3 results"><h2><a href="http://www.abdcycling.com/results/2002/winfieldcrits/wincrit.pdf">2002</a></h2></div>
+                        <div class="col-sm-3 results"><h2><a href="http://www.abdcycling.com/results/2001/winfieldcrit/winfieldcrit.pdf">2001</a></h2></div>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+                <section class="bg-2">
+                    <div class="col-sm-6 col-sm-offset-3 text-center"></div>
+                </section>
+
+                <!-- SECTION3: Event Info -->
+                <div class="divider" id="section3"></div>
+                <div class="divider"></div>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <a href="http://www.paveliga.com/" title="Pave Liga" class="pull-right">
+                            <img src="/images/paveliga-small.png" alt="Pave Liga" class="opaque" width="75px" />
+                        </a>
+                        <h1>Event Info</h1>
+                        <hr />
+                        <h2>Saturday, July 12, 2014</h2>
+                        <p>Oakwood Park | 12:00pm - 7:30pm</p>
+                        <h3>An Evening of Professional and Amateur Races for Non-Stop Excitement</h3>
+                        <ul>
+                            <li>Pro-Ranked Cyclists</li>
+                            <li>Beginner Races</li>
+                            <li>Mayors' &amp; Kids' Races</li>
+                            <li>Food, drink and entertainment for racers, spectators, and visitors</li>
+                            <ul>
+                                <li>Rise Above BMX Stunt Performance</li>
+                                <li>bottle &amp; bottega <small>ART UNCORKED</small> painting art party</li>
+                                <li>Professional Juggler Andy Head</li>
+                                <li>Magic by Wayne Braun</li>
+                                <li>Moonwalk</li>
+                            </ul>
+                            <li>A portion of each entry fee to be donated to Special Olympics</li>
+                            <li>Proceeds raised from the event will be donated to the Advocates of the Winfield Riverwalk, a 501(c)(3) not-for-profit orginization, and used for the riverwalk design engineering and landscape plans.</li>
+                        </ul>
+                        <p class="text-center"><strong>The National Anthem to be performed by the Community Acapella Chamber Choir</strong></p>
+                        <div class="divider"></div>
+                        <a href="https://www.bikereg.com/2014-winfield-criterium" title="BikeReg.com Online Event Registration">
+                            <img src="/images/bikereg.png" alt="BikeReg.com Online Event Registration" />
+                        </a>
+                        <div class="divider"></div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped schedule">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Category</th>
+                                        <th>Distance</th>
+                                        <th>Pre-Reg</th>
+                                        <th>Day Of</th>
+                                        <th>Prizes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="vertical-align: middle;">12:00 PM</td>
+                                        <td>Men 60+/65+/70+/75+/80+<br />Women 30+/40+/50+/55+/60+/65+/70+/75+/80+<br />Women Cat 4/5</td>
+                                        <td style="vertical-align: middle;">35 Minutes</td>
+                                        <td style="vertical-align: middle;">$30</td>
+                                        <td style="vertical-align: middle;">$35</td>
+                                        <td>$150/3 places<br />$250/5 places<br />$250/5 places</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12:45 PM</td>
+                                        <td>Juniors</td>
+                                        <td>30 Minutes</td>
+                                        <td>$20</td>
+                                        <td>$25</td>
+                                        <td>$150/3 places</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1:25 PM</td>
+                                        <td>Men Cat 5</td>
+                                        <td>30 Minutes</td>
+                                        <td>$25</td>
+                                        <td>$30</td>
+                                        <td>Medals</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle;">2:05 PM</td>
+                                        <td>Men 50+ &amp; 55+<br />Women Cat 1/2/3</td>
+                                        <td style="vertical-align:middle;">40 Minutes</td>
+                                        <td style="vertical-align:middle;">$30</td>
+                                        <td style="vertical-align:middle;">$35</td>
+                                        <td>$350/5 places<br />$650/8 places</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2:55 PM</td>
+                                        <td>Men 30+ &amp; 40+</td>
+                                        <td>45 Minutes</td>
+                                        <td>$30</td>
+                                        <td>$35</td>
+                                        <td>$500/7 places</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3:50 PM</td>
+                                        <td>Kids' Race</td>
+                                        <td>25 Minutes</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4:25 PM</td>
+                                        <td>Men Cat 4</td>
+                                        <td>40 Minutes</td>
+                                        <td>$30</td>
+                                        <td>$35</td>
+                                        <td>$400/5 places</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5:15 PM</td>
+                                        <td>Mayors' Race</td>
+                                        <td>10 Minutes</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5:35 PM</td>
+                                        <td>Men Cat 1/2<br />Men Cat 3</td>
+                                        <td>90 Minutes</td>
+                                        <td>$35</td>
+                                        <td>$40</td>
+                                        <td>$3800/12 places<br />$1000/10 places</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7:15 PM</td>
+                                        <td colspan="5">Party In The Park</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+                <section class="bg-3">
+                    <div class="col-sm-6 col-sm-offset-3 text-center"></div>
+                </section>
+
+                <!-- SECTION4: Sponsors -->
+                <div class="divider" id="section4"></div>
+                <div class="divider"></div>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <h1>Sponsors</h1>
+                        <hr />
+                        <div class="col-sm-4 sponsor">
+                            <a href="http://www.prairiepathcycles.com/" title="Prairie Path Cycles">
+                                <img src="/images/sponsors/ppc.png" alt="Prairie Path Cycles" class="img-responsive" />
+                            </a>
+                        </div>
+                        <div class="col-sm-4 sponsor">
+                            <a href="http://www.abdcycling.com/" title="Athletes By Design">
+                                <img src="/images/sponsors/abd.png" alt="Athletes By Design" class="img-responsive" />
+                            </a>
+                        </div>
+                        <div class="col-sm-4 sponsor">
+                            <a href="https://www.facebook.com/WinfieldRiverwalk" title="Winfield Riverwalk">
+                                <img src="/images/sponsors/riverwalk.png" alt="Winfield Riverwalk" class="img-responsive" />
+                            </a>
+                        </div>
+                        <div class="col-sm-4 sponsor">
+                            <a href="http://www.cadencehealth.org/" title="Cadence Health">
+                                <img src="/images/sponsors/cadence.png" alt="Cadence Health" class="img-responsive" />
+                            </a>
+                        </div>
+                        <div class="col-sm-4 sponsor">
+                            <a href="http://bottleandbottega.com/" title="Bottle &amp; Bottega">
+                                <img src="/images/sponsors/bottleandbottega.png" alt="Bottle &amp; Bottega" class="img-responsive" />
+                            </a>
+                        </div>
+                        <div class="col-sm-4 sponsor">
+                            <a href="http://riseabovebmx.com/" title="Rise Above BMX">
+                                <img src="/images/sponsors/riseabovebmx.jpg" alt="Rise Above BMX" class="img-responsive" />
+                            </a>
+                        </div>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+                <section class="bg-2">
+                    <div class="col-sm-6 col-sm-offset-3 text-center"></div>
+                </section>
+
+                <!-- SECTION5: Media -->
+                <div class="divider" id="section5"></div>
+                <div class="divider"></div>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <h1>Media</h1>
+                        <hr />
+                        <div class="divider"></div>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+                <section class="bg-1">
+                    <div class="col-sm-6 col-sm-offset-3 text-center"></div>
+                </section>
+
+                <!-- SECTION6: Location -->
+                <div class="divider" id="section6"></div>
+                <div class="divider"></div>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1"><h1>Location</h1></div>
+                    <div id="map-canvas"></div>
+                    <hr />
+                    <div class="col-sm-8"></div>
+                    <div class="col-sm-3 pull-right">
+                        <address>
+                            <span id="map-input">
+                                Oakwood Park<br />
+                                Winfield, IL 60190
+                            </span>
+                            <br />
+                            P: (630) 690-9749
+                            </span>
+                        </address>
+                    </div>
+                </div>
+
+                <!-- SECTION7: Contact -->
+                <div class="divider" id="section7"></div>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <h1>Contact Us</h1>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-4 contact">
+                                <h3>Race Information and Registration</h3>
+                                <p><strong>Mary Lee Geraghty</strong></p>
+                                <p>Athletes By Design Cycling Team</p>
+                                <p><a href="tel:+16306909749">(630) 690-9749</a></p>
+                                <p><a href="mailto:prairiepathcycles@gmail.com">prairiepathcycles@gmail.com</a></p>
+                            </div>
+                            <div class="col-sm-4 contact">
+                                <h3>Event Information and Sponsorships</h3>
+                                <p><strong>Gary Bernard</strong></p>
+                                <p>Advocates of the Winfield Riverwalk</p>
+                                <p><a href="tel:+16304626074">(630) 462-6074</a></p>
+                                <p><a href="mailto:gleanbern@aol.com">gleanbern@aol.com</a></p>
+                            </div>
+                        </div>
+                        <div class="divider">
+                    </div>
+                </div>
+
+                <!-- SOCIAL ICONS -->
+                <div class="container">
+                    <div class="col-sm-8 col-sm-offset-2 text-center">
+                        <ul class="list-inline center-block">
+                            <li><a href="http://facebook.com/abdcycling"><img src="/images/facebook.png"></a></li>
+                            <li><a href="http://twitter.com/abdcycling"><img src="/images/twitter.png"></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            <!--=====================================================================================
+                == END: CONTENT                                                                    ==
+                =====================================================================================-->
+        </div><!-- #wrap -->
+        <div id="footer">
+            <div class="container">
+                <p class="text-muted">Copyright &copy;2014 <a href="http://www.abdcycling.com/">Athletes By Design</a></p>
+            </div>
+        </div><!-- #footer -->
+        <ul class="nav pull-right scroll-top">
+            <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
+        </ul>
+        <div class="modal" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" type="button" data-dismiss="modal">x</button>
+                        <h3 class="modal-title"></h3>
+                    </div>
+                    <div class="modal-body">
+                        <div id="modalCarousel" class="carousel">
+                            <div class="carousel-inner"></div>
+                            <a class="carousel-control left" href="#modalCarousel" data-slide="prev">
+                                <i class="glyphicon glyphicon-chevron-left"></i>
+                            </a>
+                            <a class="carousel-control right" href="#modalCarousel" data-slide="next">
+                                <i class="glyphicon glyphicon-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div><!-- .modal-body -->
+                    <div class="modal-footer">
+                        <button class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div><!-- .modal-content -->
+            </div><!-- .modal-dialog -->
+        </div><!-- #myModal -->
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.carousel').carousel({interval:3000});
+                $('#nav').affix({offset: {top: $('header').height()-$('#nav').height()}});
+                $('body').scrollspy({target:'#nav'});
+                $('.scroll-top').click(function(){$('body,html').animate({scrollTop:0},1000);});
+                $('#nav .navbar-nav li>a').click(function(){
+                    var link = $(this).attr('href');
+                    var posi = $(link).offset().top;
+                    $('body,html').animate({scrollTop:posi},700);
+                });
+                $('.panel .img-responsive').on('load', function(){}).each(function(i){
+                    if(this.complete) {
+                        var item = $('<div class="item"></div>');
+                        var itemDiv = $(this).parent('a').attr('title');
+                        item.attr('title',title);
+                        $(itemDiv.html()).appendTo(item);
+                        item.appendTo('#modalCarousel .carousel-inner');
+                        if (i==0) {
+                            item.addClass('active');
+                        }
+                    }
+                });
+                $('#modalCarousel').carousel({interval:false});
+                $('#modalCarousel').on('slid.bs.carousel',function(){
+                    $('.modal-title').html($(this).find('.active').attr('title'));
+                });
+                $('.panel-thumbnail>a').click(function(e){
+                    e.preventDefault();
+                    var idx = $(this).parents('.panel').parent().index();
+                    var id = parseInt(idx);
+                    $('#myModal').modal('show');
+                    $('#modalCarousel').carousel(id);
+                    return false;
+                });
+                // GOOGLE MAPS
+                google.maps.visualRefresh = true;
+                var map;
+                function initialize() {
+                    var geocoder = new google.maps.Geocoder();
+                    var address = $('#map-input').text();
+                    var mapOptions = {
+                        zoom: 15,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+                        scrollwheel: false
+                    };
+                    map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+                    if (geocoder) {
+                        geocoder.geocode({'address': address}, function(results, status) {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+                                    map.setCenter(results[0].geometry.location);
+                                    var infowindow = new google.maps.InfoWindow(
+                                        {
+                                            content: address,
+                                            map: map,
+                                            position: results[0].geometry.location
+                                        });
+                                    var marker = new google.maps.Marker({
+                                        position: results[0].geometry.location,
+                                        map: map,
+                                        title: address
+                                    });
+                                } else {
+                                    alert('No results found');
+                                }
+                            }
+                        });
+                    }
+                }
+                google.maps.event.addDomListener(window,'load',initialize);
+            });
+        </script>
+    </body>
+</html>
+<!--
+vim: tw=0:
+-->

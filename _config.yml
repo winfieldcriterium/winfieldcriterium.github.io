@@ -2,7 +2,7 @@ markdown: redcarpet
 pygments: false
 exclude: ['Gemfile', 'Gemfile.lock', 'package.json', 'Gruntfile.js', '.csscomb.json', 'node_modules']
 title: 2014 Winfield Criterium
-url: http://winfieldcriterium.github.io
+url: http://www.winfieldcriterium.com
 author:
     name: Rich Johnson
     email: nixternal@gmail.com

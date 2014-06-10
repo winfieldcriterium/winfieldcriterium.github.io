@@ -8,8 +8,6 @@ author:
     email: nixternal@gmail.com
     github: nixternal
     twitter: nixternal
-version: 2014.1
-github:
-    repo: github.com/winfieldcriterium/winfieldcriterium.github.io
+version: 20.14.1
 gems:
 - jekyll-sitemap

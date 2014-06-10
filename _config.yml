@@ -11,3 +11,5 @@ author:
 version: 2014.1
 github:
     repo: github.com/winfieldcriterium/winfieldcriterium.github.io
+gems:
+- jekyll-sitemap

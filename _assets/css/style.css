@@ -65,17 +65,22 @@ h1 {
   top: 70px;
   z-index: 1200;
   width: 100%;
-  font-size: 60px;
+  font-size: 80px;
   font-weight: 700;
   color: #fff;
   text-align: center;
-  text-shadow: -2px 0 #f00, 0 2px #f00, 2px 0 #f00, 0 -2px #f00;
+  text-shadow: 3px 3px 0 #333, -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333, 1px 1px 0 #333;
+
+  -webkit-text-stroke: 1px #333;
 }
 .carousel-caption h1 {
   font-size: 40px;
   font-weight: 700;
   color: #f00;
-  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+  text-shadow: 3px 3px 0 #333, -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333, 1px 1px 0 #333;
+
+  -webkit-text-stroke: 1px #fff;
+  /*text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;*/
 }
 #nav {
   position: static;

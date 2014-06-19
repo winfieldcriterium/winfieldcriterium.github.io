@@ -119,8 +119,12 @@ h1 {
 .navbar-toggle {
   outline: 0;
 }
+.divider:before {
+  content: "\00a0 ";
+}
 .divider {
-  height: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .panel {
   border-width: 0;

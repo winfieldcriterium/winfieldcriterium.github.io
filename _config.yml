@@ -1,5 +1,5 @@
 markdown: redcarpet
-pygments: false
+highlighter: null
 exclude: ['Gemfile', 'Gemfile.lock', 'package.json', 'Gruntfile.js', '.csscomb.json', 'node_modules']
 title: 2014 Winfield Criterium
 url: http://www.winfieldcriterium.com

@@ -1,12 +1,13 @@
 markdown: redcarpet
 exclude: ['Gemfile', 'Gemfile.lock', 'package.json', 'Gruntfile.js', '.csscomb.json', 'node_modules']
-title: 2014 Winfield Criterium
-url: http://www.winfieldcriterium.com
+title: 2015 Winfield Criterium
+url: https://www.winfieldcriterium.com
+enforce_ssl: www.winfieldcriterium.com
 author:
     name: Rich Johnson
-    email: nixternal@gmail.com
+    email: rich@abdcycling.com.com
     github: nixternal
     twitter: nixternal
-version: 20.14.1
+version: 20.15.1
 gems:
 - jekyll-sitemap

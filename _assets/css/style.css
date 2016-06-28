@@ -195,6 +195,9 @@ section {
 th, td {
   text-align: center;
   }
+.schedule > tbody > tr > td {
+  vertical-align: middle;
+  }
 .sponsor {
   padding: 20px 0 25px 0;
   text-align: center;

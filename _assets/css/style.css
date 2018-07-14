@@ -156,21 +156,21 @@ section {
   color: #fff;
   }
 .bg-1 {
-  background: url('/assets/img/bg_1.JPG') no-repeat center center fixed;
+  background: url('/assets/img/bg_4.JPG') no-repeat center center fixed;
   -webkit-background-size: cover;
      -moz-background-size: cover;
        -o-background-size: cover;
           background-size: cover;
   }
 .bg-2 {
-  background: url('/assets/img/bg_2.JPG') no-repeat center center fixed;
+  background: url('/assets/img/bg_5.JPG') no-repeat center center fixed;
   -webkit-background-size: cover;
      -moz-background-size: cover;
        -o-background-size: cover;
           background-size: cover;
   }
 .bg-3 {
-  background: url('/assets/img/bg_3.JPG') no-repeat center center fixed;
+  background: url('/assets/img/bg_6.JPG') no-repeat center center fixed;
   -webkit-background-size: cover;
      -moz-background-size: cover;
        -o-background-size: cover;

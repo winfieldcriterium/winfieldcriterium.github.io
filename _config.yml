@@ -1,6 +1,6 @@
 markdown: redcarpet
 exclude: ['Gemfile', 'Gemfile.lock', 'package.json', 'Gruntfile.js', '.csscomb.json', 'node_modules']
-title: 2021 Winfield Criterium
+title: 2021 Winfield Criterium - Redirecting...
 url: https://www.winfieldcriterium.com
 enforce_ssl: www.winfieldcriterium.com
 author:

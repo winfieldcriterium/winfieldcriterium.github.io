@@ -8,6 +8,6 @@ author:
     email: rich@abdcycling.com.com
     github: nixternal
     twitter: nixternal
-version: 2019.7.14
+version: 2021.6.7
 gems:
 - jekyll-sitemap

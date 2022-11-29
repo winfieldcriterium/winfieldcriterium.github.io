@@ -9,5 +9,5 @@ author:
     github: nixternal
     twitter: nixternal
 version: 2021.6.7
-gems:
+plugins:
 - jekyll-sitemap

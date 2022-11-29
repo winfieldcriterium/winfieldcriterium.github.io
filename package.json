@@ -15,7 +15,7 @@
     "devDependencies": {
         "grunt": "~1.5.3",
         "grunt-contrib-cssmin": "~4.0.0",
-        "grunt-csscomb": "^3.1.1",
+        "grunt-csscomb": "^4.2.0",
         "load-grunt-tasks": "~5.1.0",
         "time-grunt": "~2.0.0"
     }
